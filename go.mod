@@ -1,3 +1,3 @@
-module github.com/tbshill/cmd/gostruct
+module github.com/tbshill/gostruct
 
 go 1.13
