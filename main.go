@@ -7,17 +7,35 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"io"
 )
 
 var delimeter string
 var recordName string
 var pkgName string
+var outfile string
 
 func main() {
+	flag.StringVar(&outfile, "out", "", "-out mycsvrecord.go")
 	flag.StringVar(&pkgName, "pkg", ",", "-pkg mypackage")
 	flag.StringVar(&delimeter, "dl", ",", "delimeter -dl '|'")
 	flag.StringVar(&recordName, "name", "", "-name 'MyCSVRecortd'")
 	flag.Parse()
+
+	var out io.Writer
+	if outfile != "" {
+		var err error
+		var f *os.File
+		f, err = os.OpenFile(outfile, os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0655)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Error creating a file:%v", err)
+			os.Exit(1)
+		}
+		defer f.Close()
+		out = f
+	} else {
+		out = os.Stdout
+	}
 
 
 	if recordName == "" {
@@ -31,7 +49,7 @@ func main() {
 	}
 
 	if pkgName != "" {
-		fmt.Printf("package %s\n\n", pkgName)
+		fmt.Fprintf(out,"package %s\n\n", pkgName)
 	}
 
 	for _, filename := range flag.Args() {
@@ -42,8 +60,7 @@ func main() {
 		}
 
 		genText := GenerateText(firstLine, delimeter, recordName)
-		fmt.Println(genText)
-
+		fmt.Fprintln(out,genText)
 	}
 
 }
