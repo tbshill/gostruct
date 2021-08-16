@@ -11,11 +11,14 @@ import (
 
 var delimeter string
 var recordName string
+var pkgName string
 
 func main() {
+	flag.StringVar(&pkgName, "pkg", ",", "-pkg mypackage")
 	flag.StringVar(&delimeter, "dl", ",", "delimeter -dl '|'")
 	flag.StringVar(&recordName, "name", "", "-name 'MyCSVRecortd'")
 	flag.Parse()
+
 
 	if recordName == "" {
 		fmt.Fprintf(os.Stderr, "Please specify a --name")
@@ -25,6 +28,10 @@ func main() {
 	if len(flag.Args()) == 0 {
 		fmt.Fprintf(os.Stderr, "Please specify at least one file to process")
 		os.Exit(1)
+	}
+
+	if pkgName != "" {
+		fmt.Printf("package %s\n\n", pkgName)
 	}
 
 	for _, filename := range flag.Args() {
