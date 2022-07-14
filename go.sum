@@ -13,7 +13,6 @@ github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/
 github.com/tbshill/csv v0.0.0-20210811034324-39629ad9b789/go.mod h1:r3GLXBLJKng7p/d03EQDg80TXdDqIMc/MFRfaAxoFFY=
 github.com/tbshill/csv v0.0.0-20210816123135-4ce997475d88 h1:5BteFguawtxdOUyhlkbaM8EpQ9GTmJX36NnK2NIp9+g=
 github.com/tbshill/csv v0.0.0-20210816123135-4ce997475d88/go.mod h1:xiDjwM1f2Cr+NrsbNWWQ6O9qRDVsCt+AlQZgRZx9jAM=
-github.com/tbshillcdr/gocdrm v1.0.3/go.mod h1:NQ6MUPJ1lxu3oY/ZEiu4L5QPmGdt2UqRkI3rzNkI30M=
 golang.org/x/crypto v0.0.0-20190325154230-a5d413f7728c/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20210421170649-83a5a9bb288b/go.mod h1:T9bdIzuCu7OtxOm1hfPfRQxPLYneinmdGuTeoZ9dtd4=
 golang.org/x/crypto v0.0.0-20210711020723-a769d52b0f97/go.mod h1:GvvjBRRGRdwPK5ydBHafDWAxML/pGHZbMvKqRZ5+Abc=
